@@ -3,20 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SheCodes Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet" />
   </head>
+  <link rel="stylesheet" href="src/style.css" />
   <body>
-    <h1>Hello World this is my meteo app</h1>
-    <footer>
-      Coded by
-      <a href="https://github.com/serenadg" target="_blank"
-        >Serena Di Girolamo</a
-      >
-      <a href="https://github.com/serenadg/meteo-app" target="_blank"
-        >on Github</a
-      >
-      and hosted on
-      <a href="https://meteo-app-sd.netlify.app/" target="_blank">Netlify</a>
-    </footer>
+    <div class="weather">
+      <form class="search-form">
+        <input
+          class="search-input"
+          type="search"
+          name="city"
+          placeholder="Enter a city.." />
+        <input class="button-submit" type="submit" value="Search" />
+      </form>
+
+      <main>
+        <div class="current-weather">
+          <div class="weather-info">
+            <h1 class="city">Paris</h1>
+            <ul class="weather-details">
+              <li>
+                <span class="date">Loading...</span>, moderate rain <br />
+              </li>
+              <li>
+                Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="temperature">
+            <span class="emoji">☀️</span>
+            <span class="temperatureValue">14</span>
+            <span class="unit"><small>°C</small></span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        The project was coded by
+        <a href="https://github.com/serenadg" target="_blank"
+          >Serena Di Girolamo</a
+        >
+        and is
+        <a
+          href="https://github.com/serenadg/weather-app"
+          target="_blank"
+          rel="noopener noreferrer">
+          on GitHub
+        </a>
+        and
+        <a
+          href="https://sd-weather-app-sd.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer">
+          hosted on Netlify
+        </a>
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
   </body>
 </html>
