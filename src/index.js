@@ -21,6 +21,8 @@ function showWeather(response) {
   let wind = document.querySelector("#wind");
   let date1 = new Date(response.data.time * 1000);
   let dateElement = document.querySelector(".date");
+  let iconImage = document.querySelector(".emoji");
+  iconImage.innerHTML = `<img src="${response.data.condition.icon_url}" class=emoji />`;
   temperature.innerHTML = `${Math.round(response.data.temperature.current)}`;
   weatherDesc.innerHTML = response.data.condition.description;
   city.innerHTML = `${response.data.city}`;
