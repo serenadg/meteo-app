@@ -7,10 +7,15 @@ function submitCity(event) {
 }
 
 function searchCity(cityName) {
-  console.log(cityName);
   let apiKey = "a0aca8t7806acb2cb338fb20fbc444o1";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+}
+
+function getForecast(cityName) {
+  let apiKey = "a0aca8t7806acb2cb338fb20fbc444o1";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -29,6 +34,7 @@ function showWeather(response) {
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   wind.innerHTML = `${response.data.wind.speed}km/h`;
   dateElement.innerHTML = formatDate(date1);
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -55,7 +61,8 @@ form.addEventListener("submit", submitCity);
 
 searchCity("Lisbon");
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
   days.forEach(function (day) {
@@ -77,4 +84,3 @@ function displayForecast() {
   let forecastElement = document.querySelector(".forecast-row");
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
