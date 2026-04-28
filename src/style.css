@@ -1,7 +1,7 @@
 .weather {
   background: white;
   max-width: 600px;
-  margin: 30px auto;
+  margin: 45px auto;
   margin-bottom: 20px;
   font-family: "Roboto", sans-serif;
   border-radius: 10px;
@@ -86,6 +86,7 @@ footer {
   font-size: 14px;
   display: block;
   text-align: center;
+  margin-top: 20px;
 }
 
 .unit {
@@ -93,4 +94,47 @@ footer {
   display: relative;
   margin: 0;
   margin-top: 15px;
+}
+
+.forecast-row {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.column {
+  display: flex;
+}
+
+.forecast-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-temp {
+  display: flex;
+  gap: 5px;
+}
+
+.forecast-day {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.forecast-temp {
+  text-align: center;
+  color: #f65282;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.forecast-icon {
+  font-size: 38px;
+  text-align: center;
+  margin: 0 auto;
 }
