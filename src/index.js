@@ -61,24 +61,31 @@ form.addEventListener("submit", submitCity);
 
 searchCity("Lisbon");
 
+function friendlyDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
 function displayForecast(response) {
   console.log(response);
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
               <div class="column">
             <div class="forecast-preview">
-              <div class="forecast-day">${day}</div>
-              <div class="forecast-icon">😢</div>
+              <div class="forecast-day">${friendlyDate(day.time)}</div>
+              <div class="forecast-icon"><img src="${day.condition.icon_url}"/></div>
               <div class="forecast-temp">
-                <span class="temp-max"><strong>25</strong></span>
-                <span class="temp-min">16</span>
+                <span class="temp-max"><strong>${Math.round(day.temperature.maximum)}°</strong></span>
+                <span class="temp-min">${Math.round(day.temperature.minimum)}°</span>
               </div>
             </div>
           </div>`;
+    }
   });
 
   let forecastElement = document.querySelector(".forecast-row");
